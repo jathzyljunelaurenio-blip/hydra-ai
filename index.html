@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0878ee">
+  <meta name="description" content="HYDRA PAY digital wallet prototype">
+  <title>HYDRA PAY - Digital Wallet</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- AUTHENTICATION SCREEN -->
+  <main id="authScreen" class="auth-screen">
+
+    <header class="auth-brand">
+      <div class="brand-icon">H</div>
+      <div>
+        <h1>HYDRA <span>PAY</span></h1>
+        <small>YOUR MONEY. YOUR CONTROL.</small>
+      </div>
+    </header>
+
+    <section class="auth-container">
+
+      <div class="auth-welcome">
+        <span class="auth-eyebrow">WELCOME TO HYDRA PAY</span>
+        <h2 id="authTitle">Your money.<br><span>Your control.</span></h2>
+        <p id="authDescription">
+          Access your digital wallet securely and conveniently.
+        </p>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="loginForm" class="auth-form">
+
+        <div class="auth-heading">
+          <h3>Welcome back</h3>
+          <p>Sign in to your account</p>
+        </div>
+
+        <label for="loginEmail">Email address</label>
+        <input
+          id="loginEmail"
+          type="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required
+        >
+
+        <label for="loginPassword">Password</label>
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button type="submit" class="primary-button" id="loginBtn">
+          Sign In →
+        </button>
+
+        <p class="auth-switch">
+          Don't have an account?
+          <button type="button" id="showRegister">Create account</button>
+        </p>
+
+      </form>
+
+      <!-- REGISTRATION FORM -->
+      <form id="registerForm" class="auth-form hidden">
+
+        <div class="auth-heading">
+          <h3>Create account</h3>
+          <p>Join the HYDRA PAY platform</p>
+        </div>
+
+        <label for="registerName">Full name</label>
+        <input
+          id="registerName"
+          type="text"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          minlength="2"
+          maxlength="80"
+          required
+        >
+
+        <label for="registerEmail">Email address</label>
+        <input
+          id="registerEmail"
+          type="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required
+        >
+
+        <label for="registerPassword">Password</label>
+        <input
+          id="registerPassword"
+          type="password"
+          placeholder="At least 8 characters"
+          autocomplete="new-password"
+          minlength="8"
+          maxlength="128"
+          required
+        >
+
+        <label for="confirmPassword">Confirm password</label>
+        <input
+          id="confirmPassword"
+          type="password"
+          placeholder="Repeat your password"
+          autocomplete="new-password"
+          minlength="8"
+          required
+        >
+
+        <button type="submit" class="primary-button" id="registerBtn">
+          Create Account →
+        </button>
+
+        <p class="auth-switch">
+          Already registered?
+          <button type="button" id="showLogin">Sign in</button>
+        </p>
+
+      </form>
+
+      <div id="authMessage" class="auth-message hidden" role="alert"></div>
+
+      <div class="auth-security">
+        ◈ Protected account authentication
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- EXISTING WALLET DASHBOARD -->
+  <div id="dashboardScreen" class="app-container hidden">
+
+    <header class="topbar">
+
+      <div class="brand">
+        <div class="brand-icon">H</div>
+        <div>
+          <h1>HYDRA <span>PAY</span></h1>
+          <small>YOUR MONEY. YOUR CONTROL.</small>
+        </div>
+      </div>
+
+      <button class="icon-button" id="notificationBtn" aria-label="Notifications">
+        ♧
+        <span class="notification-dot"></span>
+      </button>
+
+    </header>
+
+    <main class="main-content">
+
+      <section class="welcome-section">
+        <div>
+          <p class="muted">Welcome back,</p>
+          <h2 id="userName">HYDRA User 👋</h2>
+        </div>
+        <div class="avatar" id="userAvatar">H</div>
+      </section>
+
+      <!-- BALANCE -->
+      <section class="balance-card">
+
+        <div class="balance-top">
+          <span>Available Balance</span>
+          <span class="wallet-label">MY WALLET</span>
+        </div>
+
+        <div class="balance-row">
+          <h2 id="balance">₱ 5,000.00</h2>
+          <button id="toggleBalance" class="eye-button" aria-label="Hide balance">◉</button>
+        </div>
+
+        <div class="card-footer">
+          <span>PHP WALLET</span>
+          <span>•••• 2026</span>
+        </div>
+
+        <div class="card-decoration decoration-one"></div>
+        <div class="card-decoration decoration-two"></div>
+
+      </section>
+
+      <!-- QUICK ACTIONS -->
+      <section class="action-grid">
+
+        <button class="action-button" data-action="add">
+          <span class="action-icon blue">＋</span>
+          <span>Add Money</span>
+        </button>
+
+        <button class="action-button" data-action="send">
+          <span class="action-icon purple">↗</span>
+          <span>Send Money</span>
+        </button>
+
+        <button class="action-button" data-action="receive">
+          <span class="action-icon green">↓</span>
+          <span>Receive</span>
+        </button>
+
+        <button class="action-button" data-action="qr">
+          <span class="action-icon orange">▦</span>
+          <span>QR Pay</span>
+        </button>
+
+      </section>
+
+      <!-- SERVICES -->
+      <section class="services-section">
+
+        <div class="section-heading">
+          <h3>Quick Services</h3>
+          <span>Explore</span>
+        </div>
+
+        <div class="services-grid">
+
+          <button class="service-item" data-action="load">
+            <span>📱</span>
+            <small>Load</small>
+          </button>
+
+          <button class="service-item" data-action="bills">
+            <span>🧾</span>
+            <small>Bills</small>
+          </button>
+
+          <button class="service-item" data-action="bank">
+            <span>🏦</span>
+            <small>Bank</small>
+          </button>
+
+          <button class="service-item" data-action="more">
+            <span>⊞</span>
+            <small>More</small>
+          </button>
+
+        </div>
+
+      </section>
+
+      <!-- TRANSACTIONS -->
+      <section class="transactions-section">
+
+        <div class="section-heading">
+          <h3>Recent Transactions</h3>
+          <button id="viewAllBtn">View All</button>
+        </div>
+
+        <div id="transactionList" class="transaction-list">
+
+          <div class="empty-state">
+            <span>↔</span>
+            <p>No transactions yet</p>
+            <small>Your activity will appear here.</small>
+          </div>
+
+        </div>
+
+      </section>
+
+      <div class="demo-notice">
+        DEMO WALLET · SIMULATED MONEY ONLY
+      </div>
+
+    </main>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+
+      <button class="nav-item active" data-page="home">
+        <span>⌂</span>
+        <small>Home</small>
+      </button>
+
+      <button class="nav-item" data-page="activity">
+        <span>↔</span>
+        <small>Activity</small>
+      </button>
+
+      <button class="nav-item qr-nav" data-page="qr">
+        <span>▦</span>
+      </button>
+
+      <button class="nav-item" data-page="rewards">
+        <span>☆</span>
+        <small>Rewards</small>
+      </button>
+
+      <button class="nav-item" data-page="profile">
+        <span>♙</span>
+        <small>Profile</small>
+      </button>
+
+    </nav>
+
+    <!-- LOGOUT BUTTON WILL BE ADDED IN A LATER STEP -->
+
+  </div>
+
+  <!-- TRANSACTION MODAL -->
+  <div id="modal" class="modal hidden">
+
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="modal-box">
+
+      <button class="modal-close" id="closeModal">×</button>
+
+      <h3 id="modalTitle">Wallet Action</h3>
+      <p id="modalDescription">Demo transaction</p>
+
+      <form id="transactionForm">
+
+        <div id="recipientField" class="form-group hidden">
+          <label for="recipient">Recipient name</label>
+          <input
+            id="recipient"
+            type="text"
+            placeholder="Enter recipient name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Amount (PHP)</label>
+          <input
+            id="amount"
+            type="number"
+            min="1"
+            step="0.01"
+            placeholder="Enter amount"
+            required
+          >
+        </div>
+
+        <button type="submit" class="primary-button" id="confirmBtn">
+          Confirm Demo Transaction
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
